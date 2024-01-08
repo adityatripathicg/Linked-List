@@ -135,6 +135,20 @@ public class Ll1{
     public int recSearch(int key){ //Recursive Search in LL
         return helper(head, key);
     }
+
+    public void reverse(){ // reverse a LL
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while (curr!=null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
     public static void main(String[] args) {
         Ll1 ll = new Ll1();
         printLL();
@@ -154,5 +168,8 @@ public class Ll1{
         printLL();
         System.out.println(itrSearch(3));
         System.out.println(ll.recSearch(10));
+
+        ll.reverse();
+        printLL();
     }
 }
