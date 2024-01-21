@@ -106,7 +106,19 @@ public class Ll1{
         size--;
         return val;
     }
-
+    public static int itrSearch(int key){
+        Node temp = head;
+        int i = 0;
+        while (temp!=null) {
+            if (temp.data==key) { //Key Found
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        //Key Not Found
+        return -1;
+    }
     public static void main(String[] args) {
         Ll1 ll = new Ll1();
         printLL();
@@ -124,5 +136,6 @@ public class Ll1{
         printLL();
         ll.removeLast();
         printLL();
+        System.out.println(itrSearch(3));
     }
 }
