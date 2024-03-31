@@ -51,9 +51,13 @@ public class Ll1{
     }
     public static void main(String[] args) {
         Ll1 ll = new Ll1();
+        printLL();
         ll.addFirst(2);
+        printLL();
         ll.addFirst(1);
+        printLL();
         ll.addLast(3);
+        printLL();
         ll.addLast(4);
         printLL();
     }
