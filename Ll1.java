@@ -10,7 +10,7 @@ public class Ll1{
     }
     public static Node head;
     public static Node tail;
-    public void addFirst(int data){
+    public void addFirst(int data){ //AddFirst LinkedList
         //step1 - create new node
         Node newNode = new Node(data);
 
@@ -25,7 +25,7 @@ public class Ll1{
         //step3 - head = newNode
         head = newNode;
     }
-    public void addLast(int data){
+    public void addLast(int data){ // AddLast LinkedList
         //Step-1 Create New Node
         Node newNode = new Node(data);
         if (head==null) {
