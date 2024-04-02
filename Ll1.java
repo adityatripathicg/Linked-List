@@ -37,7 +37,7 @@ public class Ll1{
         //step-3 tail = newNode
         tail=newNode;
     }
-    public static void printLL(){
+    public static void printLL(){ //Printing a LinkedList
         if (head==null) {
             System.out.println("LinkedList is Empty");
             return;
