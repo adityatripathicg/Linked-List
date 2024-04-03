@@ -49,6 +49,19 @@ public class Ll1{
         }
         System.out.println("Null");
     }
+    public void add(int idx, int data){
+        Node newNode = new Node(data);
+        Node temp = head;
+        int i = 0;
+        while (i<idx-1) {
+            temp = temp.next;
+            i++;
+        }
+
+        //i = idx-1; temp -> prev
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
     public static void main(String[] args) {
         Ll1 ll = new Ll1();
         printLL();
@@ -59,6 +72,7 @@ public class Ll1{
         ll.addLast(3);
         printLL();
         ll.addLast(4);
+        ll.add(2, 9);
         printLL();
     }
 }
