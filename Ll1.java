@@ -10,7 +10,7 @@ public class Ll1{
     }
     public static Node head;
     public static Node tail;
-    public static int size;
+    public static int size; //Size/Length of LinkedList
 
     public void addFirst(int data){ //AddFirst LinkedList
         //step1 - create new node
