@@ -52,7 +52,7 @@ public class Ll1{
         }
         System.out.println("Null");
     }
-    public void add(int idx, int data){
+    public void add(int idx, int data){ // Add in Middle
         if(idx == 0){
             addFirst(data);
             return;
@@ -70,6 +70,21 @@ public class Ll1{
         newNode.next = temp.next;
         temp.next = newNode;
     }
+    public int removeFirst(){ // Remove first in LinkedList
+        if (size == 0) {
+            System.out.println("LinkedList is EMPTY");
+            return Integer.MIN_VALUE;
+        } else if(size == 1){
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        int val = head.data;
+        head = head.next;
+        size--;
+        return val;
+    }
     public static void main(String[] args) {
         Ll1 ll = new Ll1();
         printLL();
@@ -83,5 +98,7 @@ public class Ll1{
         ll.add(2, 9);
         printLL();
         System.out.println(ll.size);
+        ll.removeFirst();
+        printLL();
     }
 }
