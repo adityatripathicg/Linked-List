@@ -85,6 +85,28 @@ public class Ll1{
         size--;
         return val;
     }
+    public int removeLast(){
+        if(size == 0){
+            System.out.println("LL is empty");
+            return Integer.MAX_VALUE;
+        }else if(size == 1){
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        //Prev : i = size-2
+        Node prev = head;
+        for (int i = 0; i < size-2; i++) {
+            prev = prev.next;
+        }
+        int val = prev.next.data;
+        prev.next = null;
+        tail = prev;
+        size--;
+        return val;
+
+    }
     public static void main(String[] args) {
         Ll1 ll = new Ll1();
         printLL();
@@ -99,6 +121,8 @@ public class Ll1{
         printLL();
         System.out.println(ll.size);
         ll.removeFirst();
+        printLL();
+        ll.removeLast();
         printLL();
     }
 }
