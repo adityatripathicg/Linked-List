@@ -85,7 +85,7 @@ public class Ll1{
         size--;
         return val;
     }
-    public int removeLast(){
+    public int removeLast(){ //Remove Last in LinkedList
         if(size == 0){
             System.out.println("LL is empty");
             return Integer.MAX_VALUE;
@@ -105,8 +105,8 @@ public class Ll1{
         tail = prev;
         size--;
         return val;
-
     }
+
     public static void main(String[] args) {
         Ll1 ll = new Ll1();
         printLL();
