@@ -161,6 +161,33 @@ public class Ll1{
         }
         return false;
     }
+    public static void removeCycle(){ //Remove a Cycle in LL
+        //Detect Cycle
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+        while (fast!=null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (fast == slow) {
+                cycle = true;
+                break;
+            }
+        }
+        if (cycle==false) {
+            return;
+        }
+        //Find Meeting Point 
+        slow = head;
+        Node prev = null;
+        while (slow != fast) {
+            slow = slow.next;
+            prev = fast;
+            fast = fast.next;
+        }
+        // Remove Cycle -> last.next = null
+        prev.next = null;
+    } 
     public static void main(String[] args) {
         Ll1 ll = new Ll1();
         printLL();
