@@ -149,6 +149,18 @@ public class Ll1{
         }
         head = prev;
     }
+    public boolean isCycle(){ //Floyd's CFA
+        Node slow = head;
+        Node fast = head;
+        while (fast.next!=null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow==fast) {
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         Ll1 ll = new Ll1();
         printLL();
@@ -168,7 +180,7 @@ public class Ll1{
         printLL();
         System.out.println(itrSearch(3));
         System.out.println(ll.recSearch(10));
-
+        System.out.println(ll.isCycle());
         ll.reverse();
         printLL();
     }
