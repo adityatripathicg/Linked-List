@@ -1,3 +1,4 @@
+import java.util.*;
 public class Ll1{
     public static class Node{
         int data;
@@ -188,27 +189,90 @@ public class Ll1{
         // Remove Cycle -> last.next = null
         prev.next = null;
     } 
+    //FIND MID
+    public static Node getMid(Node head){
+        Node slow = head;
+        Node fast = head.next;
+        while (fast!=null && fast.next!=null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+
+    }
+
+    // Merge 
+    private Node merge(Node head1, Node head2){
+        Node MergedLL = new Node(-1);
+        Node temp = MergedLL;
+
+        while (head1!= null && head2 != null) {
+            if (head1.data<=head2.data) {
+                temp.next = head1;
+                head1 = head1.next;
+                temp = temp.next;
+            }else{
+                temp.next = head2;
+                head2 = head2.next;
+                temp = temp.next;
+            }
+        }
+        while (head1!=null) {
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+        while (head2!=null) {
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+        return MergedLL.next;
+    }
+    //MERGE SORT IN LL
+    public Node mergeSort(Node head){
+        if (head == null || head.next == null) {
+            return head;
+        }
+        //Find MID
+        Node mid = getMid(head);
+        //Left & Right MS
+        Node rightHead = mid.next;
+        mid.next = null;
+        Node newLeft = mergeSort(rightHead);
+        Node newRight = mergeSort(rightHead);
+        //Merge
+        return merge(newLeft, newRight);
+    }
     public static void main(String[] args) {
-        Ll1 ll = new Ll1();
-        printLL();
-        ll.addFirst(2);
-        printLL();
-        ll.addFirst(1);
-        printLL();
-        ll.addLast(3);
-        printLL();
+        LinkedList<Integer>ll = new LinkedList<>();
+        ll.addLast(5);
         ll.addLast(4);
-        ll.add(2, 9);
-        printLL();
-        System.out.println(ll.size);
-        ll.removeFirst();
-        printLL();
-        ll.removeLast();
-        printLL();
-        System.out.println(itrSearch(3));
-        System.out.println(ll.recSearch(10));
-        System.out.println(ll.isCycle());
-        ll.reverse();
-        printLL();
+        ll.addLast(3);
+        ll.addLast(2);
+        ll.addLast(1);
+        System.out.println(ll);
+        ll.head = ll.mergeSort(ll.head);
+        // Ll1 ll = new Ll1();
+        // printLL();
+        // ll.addFirst(2);
+        // printLL();
+        // ll.addFirst(1);
+        // printLL();
+        // ll.addLast(3);
+        // printLL();
+        // ll.addLast(4);
+        // ll.add(2, 9);
+        // printLL();
+        // System.out.println(ll.size);
+        // ll.removeFirst();
+        // printLL();
+        // ll.removeLast();
+        // printLL();
+        // System.out.println(itrSearch(3));
+        // System.out.println(ll.recSearch(10));
+        // System.out.println(ll.isCycle());
+        // ll.reverse();
+        // printLL();
     }
 }
